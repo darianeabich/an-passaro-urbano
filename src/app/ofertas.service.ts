@@ -59,4 +59,18 @@ export class OfertasService {
   public getOfertas(): Oferta[] {
     return this.ofertas;
   }
+
+  public getOfertas2(): Promise<Oferta[]> {
+    return new Promise((resolve, reject) => {
+      // algum tipo de processamento, que ao finalzar, chama da função resolve ou a reject
+      // resolve() = passa a informação para o then
+      console.log('será que passou por aqui?');
+      let deuCerto = false;
+      if (deuCerto) {
+        resolve(this.ofertas)
+      } else {
+        reject({codigoErro: 404, mensagemErro: 'Servidor não encontrado'})
+      }
+    });
+  }
 }
