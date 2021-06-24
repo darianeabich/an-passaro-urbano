@@ -18,10 +18,10 @@ export class HomeComponent implements OnInit {
     // this.ofertas = this.ofertasService.getOfertas();
     // console.log(this.ofertas);
 
-    this.ofertasService.getOfertas2()
+    this.ofertasService.getOfertas()
       //then() = executa uma ação quando a Promise estiver resolvida
-      .then((ofertas: Oferta[]) => {
-        console.log('a função resolve() foi resolvida depois de 3 segundos');
+      .then((ofertas:any) => {
+        //console.log('a função resolve() foi resolvida depois de 3 segundos');
         this.ofertas = ofertas
       })
       .catch((param:any) => {
