@@ -8,3 +8,9 @@ img {
     padding-left: 25px;
     padding-right: 25px;
 }
+
+.row-button .btn {
+  width: 25%;
+}
+
+
