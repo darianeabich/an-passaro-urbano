@@ -41,6 +41,14 @@ export class OfertasService {
       })
   }
 
+  public getOndeFicaOfertaPorId(id: number): Promise<string> {
+    return this.http.get(`${URL_API}/onde-fica?id=${id}`)
+      .toPromise()
+      .then((resposta: any) => {
+        return resposta[0].descricao;
+      })
+  }
+
   // public getOfertas2(): Promise<Oferta[]> {
   //   return new Promise((resolve, reject) => {
   //     // algum tipo de processamento, que ao finalzar, chama da função resolve ou a reject
