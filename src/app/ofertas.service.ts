@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { Observable } from 'rxjs';
+import { map, retry } from 'rxjs/operators';
 import { Oferta } from './shared/oferta.model';
 import { URL_API } from './app.api';
 
@@ -49,6 +50,16 @@ export class OfertasService {
       })
   }
 
+  public pesquisaOfertas(termo: string): Observable<Oferta[]> {
+    return this.http.get(`${URL_API}/ofertas?descricao_oferta_like=${termo}`)
+    .pipe(
+      map((resposta: any) => {
+        console.log(resposta);
+        return resposta;
+      }),
+      retry(10)
+    )
+  }
   // public getOfertas2(): Promise<Oferta[]> {
   //   return new Promise((resolve, reject) => {
   //     // algum tipo de processamento, que ao finalzar, chama da função resolve ou a reject
