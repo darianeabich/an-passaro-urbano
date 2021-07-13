@@ -54,7 +54,6 @@ export class OfertasService {
     return this.http.get(`${URL_API}/ofertas?descricao_oferta_like=${termo}`)
     .pipe(
       map((resposta: any) => {
-        console.log(resposta);
         return resposta;
       }),
       retry(10)
