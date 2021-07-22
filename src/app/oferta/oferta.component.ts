@@ -19,12 +19,15 @@ export class OfertaComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    // Snapshot
-    // caso quisesse passar mais parametros na rota, só fazer o mesmo processo
-    this.ofertasService.getOfertaPorId(this.route.snapshot.params['id'])
-      .then((oferta: Oferta) => {
-        this.oferta = oferta;
-      });
+
+    this.route.params.subscribe((parametros: any) => {
+      // Snapshot
+      // caso quisesse passar mais parametros na rota, só fazer o mesmo processo
+      this.ofertasService.getOfertaPorId(parametros.id)
+        .then((oferta: Oferta) => {
+          this.oferta = oferta;
+        });
+    });
 
   }
 
