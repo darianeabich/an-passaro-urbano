@@ -24,7 +24,6 @@ export class TopoComponent implements OnInit {
         debounceTime(1000), //executa a ação do switchMap após 1s
         distinctUntilChanged(), //fazer pesquisas distintas
         switchMap((termo: string) => {
-        console.log('requisiçãi http para api ');
 
         if (termo.trim() === '') {
           //retornar um observable de Ofertas[] vazio quando não tiver nada digitado na pesquisa
@@ -33,22 +32,15 @@ export class TopoComponent implements OnInit {
         return this.ofertasService.pesquisaOfertas(termo);
         }),
         catchError((err: any) => {
-          console.log(err);
           return of<Oferta[]>([]);
         })
       );
-
-    this.ofertas.subscribe((ofertas: Oferta[]) => {
-      console.log(ofertas);
-      this.ofertas2 = ofertas;
-    })
   }
 
   /**
    * pesquisa
 event: Event : void  */
   public pesquisa(termoDaBusca: string): void {
-    console.log('keyup caracter: ', termoDaBusca);
     this.subjectPesquisa.next(termoDaBusca); //sempre que houver um termo de busca, este será enviado ao subject
   }
 
