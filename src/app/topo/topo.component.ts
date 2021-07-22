@@ -13,7 +13,7 @@ import { Oferta } from '../shared/oferta.model';
 export class TopoComponent implements OnInit {
 
   public ofertas!: Observable<Oferta[]>;
-  public ofertas2!: Oferta[];
+
   public subjectPesquisa: Subject<string> = new Subject<string>();
 
   constructor(private ofertasService: OfertasService) { }
@@ -44,4 +44,7 @@ event: Event : void  */
     this.subjectPesquisa.next(termoDaBusca); //sempre que houver um termo de busca, este será enviado ao subject
   }
 
+  public limpaPesquisa(): void {
+    this.subjectPesquisa.next('');
+  }
 }
