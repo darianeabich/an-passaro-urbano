@@ -21,7 +21,7 @@ export class OrdemCompraComponent implements OnInit {
   //controles de estado primitivo dos campos (pristine)
   public enderecoEstadoPrimitivo: boolean = true;
   public numeroEstadoPrimitivo: boolean = true;
-  public complementoPrimitivo: boolean = true;
+  public complementoEstadoPrimitivo: boolean = true;
   public formaPagamentoEstadoPrimitivo: boolean = true;
 
   constructor() { }
@@ -59,7 +59,7 @@ export class OrdemCompraComponent implements OnInit {
     this.complemento = complemento;
     // console.log('complemento: ', this.complemento);
 
-    this.complementoPrimitivo = false;
+    this.complementoEstadoPrimitivo = false;
 
     if (this.complemento.length >= 1) {
       this.complementoValido = true;
